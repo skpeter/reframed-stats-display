@@ -8,17 +8,22 @@ body, html {
 }
 
 .box {
-    width: 90%;
-    height: 90%;
+    width: 95vw;
+    height: 95vh;
     border: 2px solid red; /* Red border */
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Shadow */
 }
 
 .stats {
-    width: 30%;
-    text-align: center;
+    font-size: 5vw;
+    padding: 5%;
     vertical-align: middle;
     display: inline-block;
+    font-family: monospace;
+}
+
+#stat-name {
+    text-align: center;
 }
 
 #player1 {
