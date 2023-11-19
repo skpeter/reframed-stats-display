@@ -1,25 +1,69 @@
+@keyframes fadeOutIn {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes moveLeft {
+    0% { margin-left: 0; }
+    50% { margin-left: 5%; }
+    51% { margin-left: -5%; }
+    100% { margin-left: 0; }
+}
+
+@keyframes moveRight {
+    0% { margin-right: 0; }
+    50% { margin-right: 5%; }
+    51% { margin-right: -5%; }
+    100% { margin-right: 0; }
+}
+
+.fade-animation {
+    animation: fadeOutIn 2s ease-in-out;
+}
+
+#player1.fade-animation {
+    animation: moveLeft 2s ease-in, fadeOutIn 2s ease-in-out;
+}
+
+#player2.fade-animation {
+    animation: moveRight 2s ease-in, fadeOutIn 2s ease-in-out;
+}
+
 body, html {
     height: 100%;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0; /* Light background to see the shadow */
 }
 
 .box {
-    width: 95vw;
-    height: 95vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #18181b;
+    color: white;
+    width: 92vw;
+    height: 91vh;
     border: 2px solid red; /* Red border */
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Shadow */
+    opacity: 0;
+    animation: cubic-bezier(1, 0, 0, 1)
+}
+
+.box.show {
+    opacity: 1;
+}
+
+.box > * {
+    display: block;
+    font-family: monospace;
 }
 
 .stats {
     font-size: 5vw;
-    padding: 5%;
-    vertical-align: middle;
-    display: inline-block;
-    font-family: monospace;
+    padding: 0.25% 12.5%;
+    text-shadow: 0px 0px 5px rgba(200, 200, 200, 0.75); /* Shadow */
 }
 
 #stat-name {
@@ -27,9 +71,18 @@ body, html {
 }
 
 #player1 {
+    font-size: 7.5vw;
     text-align: left;
+    color:crimson;
 }
 
 #player2 {
+    font-size: 7.5vw;
     text-align: right;
+    color:dodgerblue;
+}
+
+#copyright {
+    text-align: center;
+    font-size: 2.5vw;
 }
