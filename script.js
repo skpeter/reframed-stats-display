@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                if (statsData.names.length > 0 && statsData.values.length > 0) {
+                if (statsData.names.length > 0 && statsData.values.length > 0 && (include_stats.length == 0 || include_stats.includes(statsData.names[currentStatIndex]))) {
                     if (remove_complimentary_data) {
                         if (statsData.values[currentStatIndex][0].split("/").length > 1) {
                             statsData.values[currentStatIndex][0] = statsData.values[currentStatIndex][0].split("/")[1]
