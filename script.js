@@ -14,8 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentStatIndex = 0;
             }
 
+            for (statname in statsData.names) {
+                if (include_stats.length == 0 || include_stats.includes(statsData.names[currentStatIndex])) break;
+                currentStatIndex = (currentStatIndex + 1) % statsData.names.length;
+            }
+
             try {
-                if (statsData.names.length > 0 && statsData.values.length > 0 && (include_stats.length == 0 || include_stats.includes(statsData.names[currentStatIndex]))) {
+                if (statsData.names.length > 0 && statsData.values.length > 0) {
                     if (remove_complimentary_data) {
                         if (statsData.values[currentStatIndex][0].split("/").length > 1) {
                             statsData.values[currentStatIndex][0] = statsData.values[currentStatIndex][0].split("/")[1]
@@ -25,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('player1').textContent = statsData.values[currentStatIndex][0];
                     document.getElementById('stat-name').textContent = statsData.names[currentStatIndex];
                     document.getElementById('player2').textContent = statsData.values[currentStatIndex][1];
-                    currentStatIndex = (currentStatIndex + 1) % statsData.names.length;
                 }
+                currentStatIndex = (currentStatIndex + 1) % statsData.names.length;
             } catch {
                 currentStatIndex = 0;
             }
