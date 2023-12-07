@@ -1,5 +1,27 @@
+
 document.addEventListener('DOMContentLoaded', () => {
-    const ws = new WebSocket(reframed_url); // Replace with your WebSocket URL
+    // Function to create a new WebSocket connection
+    function connectWebSocket() {
+        const ws = new WebSocket(reframed_url); // Replace with your WebSocket URL
+
+        // Event listener for WebSocket errors
+        ws.addEventListener('error', () => {
+            console.log('WebSocket error, attempting to reconnect...');
+            setTimeout(connectWebSocket, 1000); // Retry after 1 second
+        });
+
+        // Event listener for WebSocket connection close
+        ws.addEventListener('close', () => {
+            console.log('WebSocket connection closed, attempting to reconnect...');
+            setTimeout(connectWebSocket, 1000); // Retry after 1 second
+        });
+
+        // Add other event listeners or logic as needed
+        return ws
+    }
+
+    // Initial connection attempt
+    ws = connectWebSocket();
     document.getElementById("copyright").innerText = suffix_text
     let currentStatIndex = 0;
     statsData = { names: [], values: [] }; // To store the latest stats data
