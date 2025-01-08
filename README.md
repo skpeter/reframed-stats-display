@@ -9,3 +9,4 @@ A compact widget for use with ReFramed that cycles between the stats generated b
 3. Make a copy of the `config-example.js` file, name it `config.js`, and open it in any text editor.
 4. Change all of the variables as you see fit (you may want to include/exclude stats, URL should stay the default if you are running the stream in the same machine that runs ReFramed)
 5. Create a Browser Source in OBS, and add `index.html` as the file.
+6. If you know your way around CSS, feel free to edit the `style.css` file to change the background color, border, text font/size, anything you like.
