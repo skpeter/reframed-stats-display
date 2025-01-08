@@ -4,6 +4,7 @@ A compact widget for use with ReFramed that cycles between the stats generated b
 ![Preview image](preview.png)
 
 ## Installation and Usage
+0. Make sure ReFramed is opened, connected to your console, the Statistics plugin is enabled and the Websocket Server setting is also enabled on the plugin.
 1. Download this project by clicking on "Code" and then "Download ZIP"
 2. Unzip the contents to any directory of choice.
 3. Make a copy of the `config-example.js` file, name it `config.js`, and open it in any text editor.
